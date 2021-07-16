@@ -12,11 +12,15 @@ A Skyrim SE mod that adds OStim scenes for skill trainers
 
 ## Requirements
 * Skyrim: Special Edition (1.5.39+)
+* [Fuz Ro D-oh](https://www.nexusmods.com/skyrimspecialedition/mods/15109)
 * [OStim](https://github.com/Sairion350/OStim) and all its requirements
 
 ## Recommended mods
-* [OCum](https://github.com/Sairion350/OCum) and all its requirements﻿
-* [ORomance](https://github.com/Sairion350/ORomance) and all its requirements﻿
+* [OCum](https://github.com/Sairion350/OCum) and all its requirements
+* [ORomance](https://github.com/Sairion350/ORomance) and all its requirements
+
+## Installation
+Place the mod after (below) OStim and its other addons (OCum, ORomance etc.) in the file order and plugin order.
 
 ## Gameplay
 The mod adds "I'd like to learn <skill> from you intimately..." dialogue line to all trainers in the game. It starts a mini-game (challenge) in the OStim scene. You can earn up to 3 skill points per training session:

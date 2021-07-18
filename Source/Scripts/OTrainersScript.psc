@@ -12,6 +12,7 @@ Scriptname OTrainersScript extends Quest
 ; ====|| Properties ||====
 OSexIntegrationMain Property ostim Auto
 Actor Property PlayerRef Auto
+ReferenceAlias Property TrainerFollower Auto
 
 ; ====|| Variables ||====
 String skill          ; A skill that should be trained
@@ -20,11 +21,25 @@ Bool isTraining       ; Training session flag
 Bool trainerOrgasmed  ; Obligatory
 
 ; ====|| Functions ||====
-Function StartTrainingSession(Actor trainer, String skillToLearn)
-	
-    Int relationshipRank = trainer.GetRelationshipRank(PlayerRef)
+Function FollowPlayer(Actor trainer, String skillToLearn)
+    
+    TrainerFollower.ForceRefTo(trainer)
+    trainer.EvaluatePackage()
 
     skill = skillToLearn
+
+endFunction
+
+Function UnfollowPlayer(Actor trainer)
+    
+    TrainerFollower.Clear()
+    trainer.EvaluatePackage()
+
+endFunction
+
+Function StartTrainingSession(Actor trainer)
+	
+    Int relationshipRank = trainer.GetRelationshipRank(PlayerRef)
     isTraining = True
 
     if relationshipRank >= 1
@@ -54,6 +69,7 @@ Function Reset()
     trainerOrgasmed = False
 
 endFunction
+
 
 ; ====|| Events ||====
 Event OnInit()

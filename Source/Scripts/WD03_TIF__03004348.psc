@@ -6,15 +6,13 @@ Scriptname WD03_TIF__03004348 Extends TopicInfo Hidden
 Function Fragment_1(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-(self.GetOwningQuest() as OTrainersScript).StartTrainingSession(akSpeaker, skill)
+(self.GetOwningQuest() as OTrainersScript).FollowPlayer(akSpeaker, skill)
 TrainingCooldown.SetValue(Utility.GetCurrentGameTime() + 0.25)
 ;END CODE
 EndFunction
 ;END FRAGMENT
 
 ;END FRAGMENT CODE - Do not edit anything between this and the begin comment
-
-OSexIntegrationMain Property ostim Auto
 
 String Property skill Auto  
 

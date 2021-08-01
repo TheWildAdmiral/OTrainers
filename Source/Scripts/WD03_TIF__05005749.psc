@@ -6,8 +6,10 @@ Scriptname WD03_TIF__05005749 Extends TopicInfo Hidden
 Function Fragment_2(ObjectReference akSpeakerRef)
 Actor akSpeaker = akSpeakerRef as Actor
 ;BEGIN CODE
-(self.GetOwningQuest() as OTrainersScript).UnfollowPlayer(akSpeaker)
-(self.GetOwningQuest() as OTrainersScript).StartTrainingSession(akSpeaker)
+OTrainersScript main = self.GetOwningQuest() as OtrainersScript
+
+main.UnfollowPlayer(akSpeaker)
+main.StartTrainingSession(akSpeaker)
 ;END CODE
 EndFunction
 ;END FRAGMENT

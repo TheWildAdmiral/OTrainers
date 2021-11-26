@@ -1,4 +1,5 @@
 Scriptname OTrainersScript extends Quest
+{OTrainers Main Script}
 
 ; 
 ;     ██████╗ ████████╗██████╗  █████╗ ██╗███╗   ██╗███████╗██████╗ ███████╗
@@ -15,7 +16,7 @@ Actor Property PlayerRef Auto
 ReferenceAlias Property TrainerFollower Auto        ; A trainer who follows the player
 GlobalVariable Property TrainingCooldown Auto       ; Cooldown expiration time
 GlobalVariable Property CooldownBase Auto           ; Cooldown time (configurable in MCM)
-GlobalVariable Property MinRelationshipRank Auto    ; Minimum relationship rank (configurable)
+GlobalVariable Property BonusRelationshipRank Auto    ; Bonus relationship rank (configurable)
 
 ; ====|| Variables ||====
 String skill          ; A skill that should be trained
@@ -52,7 +53,7 @@ Function StartTrainingSession(Actor trainer)
     Int relationshipRank = trainer.GetRelationshipRank(PlayerRef)
     isTraining = True
 
-    if (relationshipRank >= MinRelationshipRank.GetValueInt())
+    if (relationshipRank >= BonusRelationshipRank.GetValueInt())
         ; Relationship bonus - by default: friend rank or above
         skillPoints += 1
     endif

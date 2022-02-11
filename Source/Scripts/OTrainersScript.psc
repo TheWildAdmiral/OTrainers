@@ -18,6 +18,9 @@ GlobalVariable Property TrainingCooldown Auto       ; Cooldown expiration time
 GlobalVariable Property CooldownBase Auto           ; Cooldown time (configurable in MCM)
 GlobalVariable Property BonusRelationshipRank Auto    ; Bonus relationship rank (configurable)
 
+GlobalVariable Property BaseAmount Auto
+GlobalVariable Property TrainerCameFirstAmount Auto
+GlobalVariable Property BonusRelationshipAmount Auto
 ; ====|| Variables ||====
 String skill          ; A skill that should be trained
 Int skillPoints       ; The number of skill points
@@ -55,7 +58,7 @@ Function StartTrainingSession(Actor trainer)
 
     if (relationshipRank >= BonusRelationshipRank.GetValueInt())
         ; Relationship bonus - by default: friend rank or above
-        skillPoints += 1
+        skillPoints += BonusRelationshipAmount.GetValueInt()
     endif
 
     ; The fun part
@@ -96,10 +99,10 @@ Event OnOStimOrgasm(string eventName, string strArg, float numArg, Form sender)
 
         if (ostim.GetTimesOrgasm(PlayerRef) < 1)
             ; Bonus - the trainer orgasmed before the player
-            skillPoints += 1
+            skillPoints += TrainerCameFirstAmount.GetValueInt()
         endif
 
-        skillPoints += 1 ; base reward
+        skillPoints += BaseAmount.GetValueInt() ; base reward
 
     endif
 
